@@ -3,35 +3,17 @@ import withStyles from "@material-ui/core/styles/withStyles";
 import PropTypes from "prop-types";
 import AppIcon from "./../images/icon.png";
 import Axios from "axios";
+import {Link} from "react-router-dom"
 
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
+import CircularProgress from '@material-ui/core/CircularProgress';
 
-const styles = {
-  form: {
-    textAlign: "center",
-  },
-  image: {
-    height: 60,
-    width: "auto",
-    margin: "30px auto 20px auto",
-  },
-  pageTitle: {
-    margin: "10px auto 10px auto",
-  },
-  textField: {
-    margin: "10px auto 10px auto",
-  },
-  button: {
-    marginTop: 20,
-  },
-  customError: {
-    color: "red",
-    fontSize: "0.8rem",
-  },
-};
+const styles = (theme)=>({
+  ...theme.spreadIt
+});
 
 export class login extends Component {
   constructor() {
@@ -60,6 +42,7 @@ export class login extends Component {
     })
       .then((res) => {
         console.log(res.data);
+        localStorage.setItem('FBIdToken',`Bearer ${res.data.token}`);
         this.setState({
           loading: false,
         });
@@ -125,9 +108,15 @@ export class login extends Component {
               variant="contained"
               color="primary"
               className={classes.button}
+              disabled={loading}
             >
               Login
+              {
+                loading && <CircularProgress size={30} className={classes.progress} />
+              }
             </Button>
+            <br/>
+            <small>don't have an account ? sign up <Link to="/signup">here</Link></small>
           </form>
         </Grid>
         <Grid item sm />
