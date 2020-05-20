@@ -20,6 +20,7 @@ let authenticated;
 const token = localStorage.FBIdToken;
 if(token){
   const decodedToken = jwtDecode(token);
+  console.log(decodedToken)
   if(decodedToken.exp * 1000 < Date.now()){
     window.location.href = '/login';
     authenticated = false;
@@ -37,8 +38,8 @@ function App() {
           <div className="container">
             <Switch>
               <Route exact path="/" component={home} />
-              <AuthRoute exact path="/login" component={login} />
-              <AuthRoute exact path="/signup" component={signup} />
+              <AuthRoute exact path="/login" component={login} authenticated={authenticated}/>
+              <AuthRoute exact path="/signup" component={signup} authenticated={authenticated} />
             </Switch>
           </div>
         </BrowserRouter>
