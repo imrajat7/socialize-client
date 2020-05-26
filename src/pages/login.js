@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import withStyles from "@material-ui/core/styles/withStyles";
 import PropTypes from "prop-types";
 import AppIcon from "./../images/icon.png";
-import Axios from "axios";
 import { Link } from "react-router-dom";
 
 import Grid from "@material-ui/core/Grid";
@@ -117,7 +116,7 @@ class login extends Component {
 
 login.propTypes = {
   classes: PropTypes.object.isRequired,
-  loginUer: PropTypes.func.isRequired,
+  loginUser: PropTypes.func.isRequired,
   user: PropTypes.object.isRequired,
   UI: PropTypes.object.isRequired
 };
