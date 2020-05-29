@@ -89,7 +89,7 @@ export class Scream extends Component {
 
     const deleteButton = authenticated && userHandle === handle ? (
       <DeleteScream screamId={screamId}/>
-    ) : null
+    ) : null;
 
     return (
       <Card className={classes.card}>
@@ -107,7 +107,7 @@ export class Scream extends Component {
           >
             {userHandle}
           </Typography>
-          {deleteButton}
+          {deleteButton}  
           <Typography variant="body2" color="textSecondary">
             {dayjs(createdAt).fromNow()}
           </Typography>

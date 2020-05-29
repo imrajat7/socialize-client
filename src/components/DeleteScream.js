@@ -2,7 +2,6 @@ import React, { Component, Fragment } from "react";
 import withStyles from "@material-ui/core/styles/withStyles";
 import PropTypes from "prop-types";
 import MyButton from "../util/MyButton";
-import Axios from "axios";
 
 import Button from "@material-ui/core/Button";
 import Dialog from "@material-ui/core/Dialog";
@@ -17,11 +16,11 @@ import { deleteScream } from "../redux/actions/dataActions";
 const styles = {
   ...theme,
   deleteButton: {
-    position: 'absolute',
-    left: '90%',
-    top: '10%'
-  }
-}
+    position: "absolute",
+    left: "90%",
+    top: "10%",
+  },
+};
 
 export class DeleteScream extends Component {
   state = {

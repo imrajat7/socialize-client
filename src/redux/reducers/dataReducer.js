@@ -1,37 +1,54 @@
-import {SET_SCREAMS, LIKE_SCREAM, UNLIKE_SCREAM, LOADING_DATA, SET_SCREAM, DELETE_SCREAM} from '../types';
+import {
+  SET_SCREAMS,
+  LIKE_SCREAM,
+  UNLIKE_SCREAM,
+  LOADING_DATA,
+  DELETE_SCREAM,
+  POST_SCREAM,
+  SET_SCREAM,
+} from "../types";
 
 const initialState = {
   screams: [],
   scream: {},
   loading: false,
-}
+};
 
-export default function(state= initialState, action){
-  switch(action.type){
+export default function (state = initialState, action) {
+  switch (action.type) {
     case LOADING_DATA:
       return {
         ...state,
         loading: true,
-      }
+      };
     case SET_SCREAMS:
-      return{
+      return {
         ...state,
         screams: action.payload,
         loading: false,
-      }
+      };
     case LIKE_SCREAM:
     case UNLIKE_SCREAM:
-      let index = state.screams.findIndex((scream) => scream.screamId === action.payload.screamId);
+      let index = state.screams.findIndex(
+        (scream) => scream.screamId === action.payload.screamId
+      );
       state.screams[index] = action.payload;
-      return{
-        ...state
-      }
-    case DELETE_SCREAM:
-      index = state.scream.findIndex(scream=> scream.screamId===action.payload);
-      state.scream.splice(index,1);
       return {
-        ...state
-      }
+        ...state,
+      };
+    case DELETE_SCREAM:
+      index = state.screams.findIndex(
+        (scream) => scream.screamId === action.payload
+      );
+      state.screams.splice(index, 1);
+      return {
+        ...state,
+      };
+    case POST_SCREAM:
+      return {
+        ...state,
+        screams: [action.payload, ...state.screams],
+      };
     default:
       return state;
   }
