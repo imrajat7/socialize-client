@@ -48,9 +48,7 @@ export const postScream = (newScream) => (dispatch) => {
       });
     });
 };
-
-//Like a scream
-
+// Like a scream
 export const likeScream = (screamId) => (dispatch) => {
   Axios.get(`/scream/${screamId}/like`)
     .then((res) => {
@@ -59,12 +57,9 @@ export const likeScream = (screamId) => (dispatch) => {
         payload: res.data,
       });
     })
-    .catch((err) => {
-      console.log(err);
-    });
+    .catch((err) => console.log(err));
 };
-
-//Unlike a scream
+// Unlike a scream
 export const unlikeScream = (screamId) => (dispatch) => {
   Axios.get(`/scream/${screamId}/unlike`)
     .then((res) => {
@@ -73,9 +68,7 @@ export const unlikeScream = (screamId) => (dispatch) => {
         payload: res.data,
       });
     })
-    .catch((err) => {
-      console.log(err);
-    });
+    .catch((err) => console.log(err));
 };
 
 export const deleteScream = (screamId) => (dispatch) => {

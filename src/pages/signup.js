@@ -49,7 +49,7 @@ export class signup extends Component {
       handle: this.state.handle
     };
 
-    this.props.logOoutUser(newUserData, this.props.history);
+    this.props.signupUser(newUserData, this.props.history);
   };
   
 

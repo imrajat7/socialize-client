@@ -29,21 +29,23 @@ export default function(state = initialState, action){
         loading: true
       }
     case LIKE_SCREAM:
-      return{
+      return {
         ...state,
-        likes:[
+        likes: [
           ...state.likes,
           {
             userHandle: state.credentials.handle,
-            screamId: action.payload.screamId,
+            screamId: action.payload.screamId
           }
         ]
-      }
+      };
     case UNLIKE_SCREAM:
-      return{
+      return {
         ...state,
-        likes: state.likes.filter(like=> like.screamId !== action.payload.screamId)
-      }
+        likes: state.likes.filter(
+          (like) => like.screamId !== action.payload.screamId
+        )
+      };
     default:
       return state;
   }
