@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from "react";
 import PropTypes from "prop-types";
 import withStyles from "@material-ui/core/styles/withStyles";
-import MyButton from "../util/MyButton";
+import MyButton from "../../util/MyButton";
 import dayjs from "dayjs";
 import { Link } from "react-router-dom";
 import LikeButton from './LikeButton';
@@ -13,7 +13,7 @@ import DialogTitle from "@material-ui/core/DialogTitle";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
-import theme from "../util/theme";
+import theme from "../../util/theme";
 
 //Icons
 import CloseIcon from "@material-ui/icons/Close";
@@ -22,7 +22,7 @@ import ChatIcon from '@material-ui/icons/Chat';
 
 //Redux
 import { connect } from "react-redux";
-import { getScream } from "../redux/actions/dataActions";
+import { getScream } from "../../redux/actions/dataActions";
 
 const styles = {
   ...theme,
