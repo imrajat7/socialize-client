@@ -99,7 +99,6 @@ export class Scream extends Component {
 }
 
 Scream.propTypes = {
-  screamId: PropTypes.string.isRequired,
   user: PropTypes.object.isRequired,
   scream: PropTypes.object.isRequired,
   classes: PropTypes.object.isRequired,

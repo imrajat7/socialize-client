@@ -5,6 +5,7 @@ import {
   LOADING_UI,
   SET_UNAUTHENTICATED,
   LOADING_USER,
+  MARK_NOTIFICATIONS_READ,
 } from "./../types";
 import Axios from "axios";
 
@@ -60,7 +61,7 @@ export const signupUser = (newUserData, history) => (dispatch) => {
     .catch((err) => {
       dispatch({
         type: SET_ERRORS,
-        payload: err,
+        payload: err.response.data,
       });
     });
 };
@@ -77,6 +78,17 @@ export const editUserDetails = (userDetails) => (dispatch) => {
     .post('/user', userDetails)
     .then(() => {
       dispatch(getUserData());
+    })
+    .catch((err) => console.log(err));
+};
+
+export const markNotificationsRead = (notificationIds) => (dispatch) => {
+  Axios
+    .post('/notifications', notificationIds)
+    .then((res) => {
+      dispatch({
+        type: MARK_NOTIFICATIONS_READ
+      });
     })
     .catch((err) => console.log(err));
 };
