@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import Axios from "axios";
 import Grid from "@material-ui/core/Grid";
 import PropTypes from 'prop-types';
 
@@ -13,8 +12,7 @@ import {getScreams} from '../redux/actions/dataActions';
 export class home extends Component {
 
   componentDidMount() {
-    Axios.get("/screams")
-      this.props.getScreams();
+    this.props.getScreams();
   }
 
   render() {

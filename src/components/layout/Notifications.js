@@ -30,8 +30,9 @@ class Notifications extends Component {
   };
   onMenuOpened = () => {
     let unreadNotificationsIds = this.props.notifications
-      .filter((not) => !not.read)
+      .filter((not) => not.read===false)
       .map((not) => not.notificationId);
+      console.log('pink');
     this.props.markNotificationsRead(unreadNotificationsIds);
   };
   render() {
@@ -79,8 +80,8 @@ class Notifications extends Component {
                 variant="body1"
                 to={`/users/${not.recipient}/scream/${not.screamId}`}
               >
-                {not.sender} {verb} your scream {time}
               </Typography>
+                {not.sender} {verb} your scream {time}
             </MenuItem>
           );
         })

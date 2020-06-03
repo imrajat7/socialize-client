@@ -22,7 +22,7 @@ const styles = {
   },
 };
 
-export class DeleteScream extends Component {
+class DeleteScream extends Component {
   state = {
     open: false,
   };

@@ -25,7 +25,6 @@ import ChatIcon from '@material-ui/icons/Chat';
 import { connect } from "react-redux";
 import { getScream, clearErrors } from "../../redux/actions/dataActions";
 
-
 const styles = {
   ...theme,
   profileImage: {

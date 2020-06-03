@@ -46,7 +46,6 @@ function App() {
   return (
     <MuiThemeProvider theme={theme}>
       <Provider store={store}>
-        <div className="App">
           <BrowserRouter>
             <Navbar />
             <div className="container">
@@ -63,7 +62,6 @@ function App() {
               </Switch>
             </div>
           </BrowserRouter>
-        </div>
       </Provider>
     </MuiThemeProvider>
   );
