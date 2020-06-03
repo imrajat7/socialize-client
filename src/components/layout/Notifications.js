@@ -82,7 +82,7 @@ class Notifications extends Component {
                 to={`/users/${not.recipient}/scream/${not.screamId}`}
               >
               </Typography>
-                {not.sender} {verb} your scream {time}
+                {not.sender} {verb} your post {time}
             </MenuItem>
           );
         })
