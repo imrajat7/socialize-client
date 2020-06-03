@@ -28,11 +28,12 @@ class Notifications extends Component {
   handleClose = () => {
     this.setState({ anchorEl: null });
   };
-  onMenuOpened = () => {
+  onMenuOpened = (event) => {
+    console.log(this.props.notifications);
     let unreadNotificationsIds = this.props.notifications
       .filter((not) => not.read===false)
       .map((not) => not.notificationId);
-      console.log('pink');
+      console.log(unreadNotificationsIds);
     this.props.markNotificationsRead(unreadNotificationsIds);
   };
   render() {
